@@ -10,7 +10,13 @@
 	<form action="calc" method="post">  
 		N1: <input type="text" name="n1" /><br>
 		<br> N2:<input type="text" name="n2" /><br>
-		<br> <input type="submit" value="Add" />
+		<br>
+		
+		Choice : 
+					Add <input type="radio" name="choice" value="add"/>
+					Mul <input type="radio" name="choice" value="mul"/> Div <input
+			type="radio" name="choice" value="div" /> Sub <input
+			type="radio" name="choice" value="sub" /><br> <bR> <input type="submit" value="Calc" />
 	</form>
 </body>
 </html>

@@ -10,10 +10,18 @@
 
 	<form action="saveUser" method="post">
 	
-		FirstName : <input type="text" name="firstName"/><br><br>
-		LastName  :<input type="text" name="lastName"/><br><br>
-		Email   : <input type="text" name="email"/><br><br>
-		Password : <input type="password" name="password"/><br><br>
+		FirstName : <input type="text" name="firstName"/>
+		${result.getFieldError("firstName").defaultMessage }
+		<br><br>
+		LastName  :<input type="text" name="lastName"/>
+		${result.getFieldError("lastName").defaultMessage }
+		<br><br>
+		Email   : <input type="text" name="email"/>
+		${result.getFieldError("email").defaultMessage }
+		<br><br>
+		Password : <input type="password" name="password"/>
+		${result.getFieldError("password").defaultMessage }
+		<br><br>
 			<input type="submit" value="Signup"/> 
 	
 	</form>

@@ -1,0 +1,12 @@
+spring validation -> 
+	
+	step 1: jar / lib / dep 
+			pom.xml 
+			spring validation jar 
+			project -> right click -> spring -> add starter ->  
+			
+	step 2: bean class -> validation -> annotations
+				@NotBlank 
+				
+	step 3: activate validation using 
+				@Validated 

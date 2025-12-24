@@ -10,15 +10,25 @@ public class CalcController {
 
 	@GetMapping("inputcalc")
 	public String inputCalc() {
-		return "InputCalc";
+		return "InputCalc";// jsp name
 	}
-	
+
 	@PostMapping("calc")
-	public String calc(Integer n1,Integer n2,Model model) {
-		Integer ans = n1+n2;
-		System.out.println(ans);
-		//ans ->controller ->jsp 
-		model.addAttribute("ans",ans);
-		return "OutputCalc";
+	public String calc(Integer n1, Integer n2, String choice, Model model) {
+		Integer ans = -1;
+
+		if (choice.equals("add")) {
+			ans = n1 + n2;
+		} else if (choice.equals("sub")) {
+			ans = n1 - n2;
+		} else if (choice.equals("mul")) {
+			ans = n1 * n2;
+		} else if (choice.equals("div")) {
+			ans = n1 / n2;
+		}
+
+		model.addAttribute("ans", ans);
+
+		return "OutputCalc";// jsp name
 	}
 }
