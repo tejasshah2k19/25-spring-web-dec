@@ -6,7 +6,36 @@ spring validation ->
 			project -> right click -> spring -> add starter ->  
 			
 	step 2: bean class -> validation -> annotations
-				@NotBlank 
+				@NotBlank -> required -> String  
+						-> message -> error message 
 				
-	step 3: activate validation using 
+	step 3: activate validation using , in controller 
 				@Validated 
+			also add BindingResult next to the bean 
+		
+	step 4: 
+			result.hasErrors() -> true / false 		
+		
+	step 5: 
+			if error is there then we need display error message on jsp 
+				for that first we have to send result object to jsp using Model 
+	step 6: 
+			now print error with associated field. 
+			using 
+					${result.getFieldError("firstName").defaultMessage} 
+					
+	step 7: you can set custom error message in bean using message="" 
+
+---------------------------------------------------------------------------	
+
+
+@NotBlank
+@NotNull 
+
+min=1955
+max=2006
+ 
+
+
+
+
