@@ -8,6 +8,8 @@ import jakarta.validation.constraints.Pattern;
 
 public class EmployeeBean {
 
+	Integer employeeId; 
+	
 	@NotBlank(message = "Please Enter Valid First Name")
 	@Pattern(regexp = "[a-zA-Z]+",message = "Please Enter Valid FirstName")
 	String firstName;

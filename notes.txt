@@ -34,6 +34,68 @@ spring validation ->
 
 min=1955
 max=2006
+---------------------------------------------------------------------------	
+adv java -> db connection ? 
+
+	jar - driver class - 
+	DBconnection - Connection - load driver - open connection 
+	PreparedStatement 
+	dao - to run query 
+
+
+---------------------------------------------------------------------------	
+	spring database connection -> 
+	
+	step 1: add jar 
+				we will use spring starter ->
+						1) spring data jdbc : JdbcTemplate 
+						2) mysql driver file  
+	step 2:
+			database configuration 
+				application.properties 
+				url 
+				userName
+				password 
+			hikari connection pool 
+---------------------------------------------------------------------------	
+
+
+create table employees (
+	employeeId int primary key auto_increment,
+	firstName varchar(20),
+	lastName varchar(20),
+	email varchar(30),
+	password varchar(80),
+	birthYear int,
+	position varchar(20)
+);
+
+---------------------------------------------------------------------------	
+
+how to execute sql query using jdbc template? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 
