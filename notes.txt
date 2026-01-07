@@ -72,24 +72,50 @@ create table employees (
 
 ---------------------------------------------------------------------------	
 
+
+where we write query?
+	dao class 
+	@Repository 
+
 how to execute sql query using jdbc template? 
+	we have three methods to execute any DML query 
+		1) update() { insert , update , delete } 
+		2) query()  { select - any row return : 0 1 2 3 Any} 
+ 		3) queryForObject() { select - single row return - exactly 1 }
+
+	db state change   , read only
+	state change -> insert , delete , update 
+	read only -> select  
+	
+
+----------------------------------------------------------------------------
+
+spring -> jsp -> read -> database -> insert query 
+
+1) mysql driver jar 
+2) spring data jdbc 
 
 
+application.properties ->	
+		url 
+		userName
+		password 
+		#database
+		spring.datasource.url=jdbc:mysql://localhost:3306/spring25m
+		spring.datasource.username=root
+		spring.datasource.password=root
+		
+server start -> connection 
 
 
+----------------------------------------------------------------------------
 
+controller 
+			newEmployee -> jsp form -> read input 
+			submit -> postmapping save user -> 
 
-
-
-
-
-
-
-
-
-
-
-
+----------------------------------------------------------------------------
+			
 
 
 
