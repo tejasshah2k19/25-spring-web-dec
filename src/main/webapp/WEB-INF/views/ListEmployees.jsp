@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,15 +9,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>List Employees</h2>
-	
-	
-	${employees.size()}
-	
-	<br>
-	${employees.get(0).firstName }
-	<br>
-	${employees.get(1).firstName }
+	<h2>List Employees</h2>
 
+	<table border="1">
+		<tr>
+			<th>FirstName</th>
+			<th>LastName</th>
+		</tr>
+
+		<c:forEach items="${employess}" var="e">
+			<tr>
+				<td>${e.firstName }</td>
+				<td>${e.lastName }</td>
+			</tr>
+		</c:forEach>
+
+	</table>
 </body>
 </html>

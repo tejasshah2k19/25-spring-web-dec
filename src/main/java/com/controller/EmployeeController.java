@@ -39,8 +39,10 @@ public class EmployeeController {
 
 	@GetMapping("listEmployees")
 	public String listEmployees(Model model) {
-		List<EmployeeBean> employees = employeeDao.getAllEmployees();
-		model.addAttribute("employees",employees);
+		List<EmployeeBean> employess = employeeDao.getAllEmployees(); // List<EmployeeBean> select * from employees;
+		// jdbcTemplate.query()
+		model.addAttribute("employess",employess);
 		return "ListEmployees";
 	}
+
 }
