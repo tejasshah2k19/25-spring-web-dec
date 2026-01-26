@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.bean.EmployeeBean;
 import com.dao.EmployeeDao;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class EmployeeController {
@@ -33,7 +35,8 @@ public class EmployeeController {
 		} else {
 			// db insert
 			employeeDao.addEmployee(employeeBean);
-			return "Login";
+			// db -> employees
+			return "redirect:/listEmployees";// url , not jsp
 		}
 	}
 
@@ -41,7 +44,29 @@ public class EmployeeController {
 	public String listEmployees(Model model) {
 		List<EmployeeBean> employess = employeeDao.getAllEmployees(); // List<EmployeeBean> select * from employees;
 		// jdbcTemplate.query()
-		model.addAttribute("employess",employess);
+		model.addAttribute("employess", employess);
+		return "ListEmployees";
+	}
+
+	@GetMapping("deleteUser")
+	public String deleteUser(Integer employeeId) {
+		System.out.println("Delete User :: " + employeeId);
+		// query
+		// delete from employees where employeeId = ?
+		employeeDao.deleteEmployee(employeeId);
+		return "redirect:/listEmployees";
+	}
+
+	@GetMapping("inputSearch")
+	public String inputSearch() {
+		return "InputSearch";
+	}
+
+	@PostMapping("search")
+	public String search(String firstName,Model model) {
+		List<EmployeeBean> employees = employeeDao.searchByFirstName(firstName);
+		System.out.println(employees.size());//5
+		model.addAttribute("employess",employees);
 		return "ListEmployees";
 	}
 

@@ -22,10 +22,21 @@ public class EmployeeDao {
 				employeeBean.getPassword(), employeeBean.getBirthYear(), employeeBean.getPosition());
 	}
 
-	
-	public List<EmployeeBean> getAllEmployees(){
-		List<EmployeeBean> employees =  stmt.query("select * from employees", new BeanPropertyRowMapper(EmployeeBean.class));
+	public List<EmployeeBean> getAllEmployees() {
+		List<EmployeeBean> employees = stmt.query("select * from employees",
+				new BeanPropertyRowMapper(EmployeeBean.class));
 		return employees;
 	}
-	//firstname -> firstName 
+	// firstname -> firstName
+
+	public void deleteEmployee(Integer employeeId) {
+		stmt.update("delete from employees where employeeId = ?", employeeId);
+	}
+
+	public List<EmployeeBean> searchByFirstName(String firstName) {
+
+		List<EmployeeBean> employees = stmt.query("select * from employees where firstName like ? ",
+				new BeanPropertyRowMapper(EmployeeBean.class),"%"+firstName+"%");
+		return employees;
+	}
 }

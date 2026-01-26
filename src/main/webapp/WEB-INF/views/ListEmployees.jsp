@@ -10,17 +10,21 @@
 </head>
 <body>
 	<h2>List Employees</h2>
+ 
+
 
 	<table border="1">
 		<tr>
 			<th>FirstName</th>
 			<th>LastName</th>
+			<th>Action</th>
 		</tr>
 
 		<c:forEach items="${employess}" var="e">
 			<tr>
 				<td>${e.firstName }</td>
 				<td>${e.lastName }</td>
+				<td><a href="deleteUser?employeeId=${e.employeeId}">Delete</a></td>
 			</tr>
 		</c:forEach>
 
